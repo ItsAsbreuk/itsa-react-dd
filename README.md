@@ -7,7 +7,7 @@ Easy to use, just add a data-attribute.
 
 ## How to use
 
-Just set the attribute data-draggable to an arbitrary String and the Component becomes draggable. Just beware you need unique data-draggable values for each draggable item. This is where `dd.generateId()` becomes handy: it generates unique Id's. (note: generate those ids during initialization of the component, NOT inside render as you don't want new Id on every update).
+Just set the attribute data-draggable to an arbitrary String and the Component becomes draggable. You need to use unique data-draggablevalues for each draggable item. This is where `dd.generateId()` becomes handy: it generates unique Id's. (note: generate those ids during initialization of the component, NOT inside render as you don't want new Id on every update).
 
 ### Making draggable: `data-draggable`
 
