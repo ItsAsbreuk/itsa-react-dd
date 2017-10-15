@@ -42,7 +42,7 @@ describe("Drag and Drop", function () {
     });
 
     after(function () {
-        this.jsdom();
+        // this.jsdom();
     });
 
     // TODO create testst that can be run on node
