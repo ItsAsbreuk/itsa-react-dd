@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component</title>
+    <style type="text/css">
+        div[data-draggable] {
+            width: 100px;
+            height: 100px;
+            background-color: #F00;
+        }
+        h1 {
+            margin: 0;
+        }
+        .core {
+            position: absolute;
+            box-sizing: content-box;
+            left: 20px;
+            top: 20px;
+            width: 40px;
+            height: 30px;
+            border-left: solid 4px #000;
+            border-top: solid 4px #000;
+            border-bottom: solid 10px #000;
+            border-right: solid 10px #000;
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            transform: translate(50px, 50px);
+        }
+        #component-container {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            transform: translate(10px, 10px);
+        }
+        #component2-container {
+            position: relative;
+            left: 25px;
+            top: 7px;
+            transform: translate(10px, 10px);
+        }
+        #component3-container {
+            position: relative;
+            left: 45px;
+            top: 10px;
+            transform: translate(10px, 10px);
+        }
+        .dropzone {
+            width: 150px;
+            height: 150px;
+            border: solid 4px #00F;
+            position: absolute;
+            z-index: -1;
+            left: 300px;
+        }
+
+        .dropzone:hover {
+            border: dotted 4px #00f;
+        }
+
+        #dropzone1 {
+            top: 5px;
+        }
+
+        #dropzone2 {
+            top: 155px;
+        }
+        html[data-draggable-droptarget='dropzone1'] div[data-dropzone="dropzone1"].dropzone:hover {
+            border: dotted 4px #00F;
+        }
+        html[data-draggable-droptarget='dropzone2'] div[data-dropzone="dropzone2"].dropzone:hover {
+            border: dotted 4px #00F;
+        }
+    </style>
+</head>
+<body>
+    <div class="core">
+        <div id="component-container"></div>
+        <div id="component2-container"></div>
+        <div id="component3-container"></div>
+    </div>
+    <div data-dropzone="dropzone1" id="dropzone1" class="dropzone"></div>
+    <div data-dropzone="dropzone2" id="dropzone2" class="dropzone"></div>
+    <script src="./app.js"></script>
+</body>
+</html>
