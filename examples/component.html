@@ -8,82 +8,69 @@
         div[data-draggable] {
             width: 100px;
             height: 100px;
-            background-color: #F00;
-        }
-        h1 {
-            margin: 0;
+            background-color: #990073;
+            box-sizing: border-box;
+            border: solid 2px #000;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            color: #FFF;
         }
         .core {
             position: absolute;
-            box-sizing: content-box;
+            box-sizing: border-box;
+            background-color: #EEE;
             left: 20px;
             top: 20px;
-            width: 40px;
-            height: 30px;
-            border-left: solid 4px #000;
-            border-top: solid 4px #000;
-            border-bottom: solid 10px #000;
-            border-right: solid 10px #000;
-            margin-left: 10px;
-            margin-top: 10px;
-            margin-right: 20px;
-            margin-bottom: 20px;
-            transform: translate(50px, 50px);
+            width: 491px;
+            height: 146px;
+            border: solid 8px #999;
         }
-        #component-container {
+        #component-container1 {
             position: absolute;
-            left: 5px;
-            top: 5px;
-            transform: translate(10px, 10px);
+            left: 15px;
+            top: 15px;
         }
-        #component2-container {
-            position: relative;
-            left: 25px;
-            top: 7px;
-            transform: translate(10px, 10px);
+        #component-container2 {
+            position: absolute;
+            left: 130px;
+            top: 15px;
         }
-        #component3-container {
-            position: relative;
-            left: 45px;
-            top: 10px;
-            transform: translate(10px, 10px);
+        #component-container3 {
+            position: absolute;
+            left: 245px;
+            top: 15px;
+        }
+        #component-container4 {
+            position: absolute;
+            left: 360px;
+            top: 15px;
         }
         .dropzone {
-            width: 150px;
-            height: 150px;
-            border: solid 4px #00F;
+            top: 300px;
+            width: 491px;
+            height: 400px;
+            border: solid 8px #000;
             position: absolute;
+            box-sizing: border-box;
             z-index: -1;
-            left: 300px;
-        }
-
-        .dropzone:hover {
-            border: dotted 4px #00f;
-        }
-
-        #dropzone1 {
-            top: 5px;
-        }
-
-        #dropzone2 {
-            top: 155px;
-        }
-        html[data-draggable-droptarget='dropzone1'] div[data-dropzone="dropzone1"].dropzone:hover {
-            border: dotted 4px #00F;
-        }
-        html[data-draggable-droptarget='dropzone2'] div[data-dropzone="dropzone2"].dropzone:hover {
-            border: dotted 4px #00F;
+            background-color: #c0e5fd;
+            left: 20px;
+            text-align: center;
+            line-height: 400px;
+            vertical-align: middle;
+            font-size: 2em;
         }
     </style>
 </head>
 <body>
     <div class="core">
-        <div id="component-container"></div>
-        <div id="component2-container"></div>
-        <div id="component3-container"></div>
+        <div id="component-container1"></div>
+        <div id="component-container2"></div>
+        <div id="component-container3"></div>
+        <div id="component-container4"></div>
     </div>
-    <div data-dropzone="dropzone1" id="dropzone1" class="dropzone"></div>
-    <div data-dropzone="dropzone2" id="dropzone2" class="dropzone"></div>
+    <div data-dropzone="dropzone" class="dropzone">Dropzone</div>
     <script src="./app.js"></script>
 </body>
 </html>

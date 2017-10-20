@@ -9,6 +9,8 @@ Easy to use, just add a data-attribute.
 
 Just set the attribute data-draggable to an arbitrary String and the Component becomes draggable. You need to use unique data-draggablevalues for each draggable item. This is where `dd.generateId()` becomes handy: it generates unique Id's. (note: generate those ids during initialization of the component, NOT inside render as you don't want new Id on every update).
 
+[View live example](http://projects.itsasbreuk.nl/react-components/itsa-dd/component.html)
+
 ### Making draggable: `data-draggable`
 
 ```js
@@ -18,20 +20,6 @@ const ReactDOM = require("react-dom"),
 
 ReactDOM.render(
     <div data-draggable={dragId} />,
-    document.getElementById("container")
-);
-```
-
-### Using a different emitter-name: `data-draggable-emitter`
-By specifying *data-draggable-emitter*, the underlying event-system fires events on behalf of this emitter. Without an emitter, the events "UI:dd", "UI:drag" and "UI:drop" will be used, with emitter (say "myEmitter"), it becomes: "myEmitter:dd", "myEmitter:drag" and "myEmitter:drop".
-
-```js
-const ReactDOM = require("react-dom"),
-    dd = require("itsa-react-dd"),
-    dragId = dd.generateId();
-
-ReactDOM.render(
-    <div data-draggable={dragId} data-draggable-emitter="myEmitter" />,
     document.getElementById("container")
 );
 ```
@@ -227,9 +215,19 @@ Event.before("*:dd", function(e) {
 });
 ```
 
+### Using a different emitter-name: `data-draggable-emitter`
+By specifying *data-draggable-emitter*, the underlying event-system fires events on behalf of this emitter. Without an emitter, the events "UI:dd", "UI:drag" and "UI:drop" will be used, with emitter (say "myEmitter"), it becomes: "myEmitter:dd", "myEmitter:drag" and "myEmitter:drop".
+
+```js
+const ReactDOM = require("react-dom"),
+    dd = require("itsa-react-dd"),
+    dragId = dd.generateId();
+
+ReactDOM.render(
+    <div data-draggable={dragId} data-draggable-emitter="myEmitter" />,
+    document.getElementById("container")
+);
+```
+
 ## Browser support
 IE8+ and all modern browsers
-
-[View live example](http://projects.itsasbreuk.nl/react-components/itsa-dd/component.html)
-
-[API](http://projects.itsasbreuk.nl/react-components/itsa-dd/api/)

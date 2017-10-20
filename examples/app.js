@@ -46,83 +46,50 @@
 
 	"use strict";
 
-	var thisNode = void 0;
-
 	var React = __webpack_require__(1),
 	    Event = __webpack_require__(37),
-	    ReactDOM = __webpack_require__(43);
-	// Component = require("./lib/component-styled.jsx");
+	    ReactDOM = __webpack_require__(43),
+	    later = __webpack_require__(190).later,
+	    dd = __webpack_require__(196);
 
-	// let setXY = require('./lib/extend-element').setXY;
-
-	var later = __webpack_require__(190).later;
-
-	var dd = __webpack_require__(196);
-
-	var props = {
-	    className: 'relative',
+	var props1 = {
 	    'data-draggable': dd.generateId(),
-	    // 'data-draggable-x': 'true',
-	    // 'data-draggable-y': 'true',
-	    // 'data-draggable-proxy': 'true',
-	    // 'data-draggable-proxy': 'outline',
-	    // 'data-draggable-proxy': 'blur',
-	    'data-draggable-proxy': 'reverse-blur',
+	    'data-draggable-proxy': 'blur',
 	    'data-draggable-constrain': 'window',
-	    'data-draggable-handle': 'h1',
-	    'data-draggable-droptarget': 'dropzone1',
-	    'data-draggable-group': 'group-one',
-	    ref: function ref(node) {
-	        return thisNode = node;
-	    },
-	    dangerouslySetInnerHTML: { __html: '<h1>ha<i>ndl</i>e</h1>' }
+	    'data-draggable-droptarget': 'dropzone',
+	    dangerouslySetInnerHTML: { __html: 'Drag me' }
 	};
 
 	var props2 = {
-	    className: 'relative',
 	    'data-draggable': dd.generateId(),
-	    // 'data-draggable-y': 'true',
+	    'data-draggable-proxy': 'reverse-blur',
 	    'data-draggable-constrain': 'window',
-	    'data-draggable-group': 'group-one',
-	    'data-draggable-emitter': 'my-emitter',
-	    'data-draggable-droptarget': 'dropzone1, dropzone2',
-	    ref: function ref(node) {
-	        return thisNode = node;
-	    }
+	    'data-draggable-droptarget': 'dropzone',
+	    dangerouslySetInnerHTML: { __html: 'Drag me' }
 	};
 
 	var props3 = {
-	    className: 'relative',
 	    'data-draggable': dd.generateId(),
-	    // 'data-draggable-y': 'true',
+	    'data-draggable-proxy': 'outline',
 	    'data-draggable-constrain': 'window',
-	    'data-draggable-group': 'group-two',
-	    'data-draggable-droptarget': 'dropzone2',
-	    ref: function ref(node) {
-	        return thisNode = node;
-	    }
+	    'data-draggable-droptarget': 'dropzone',
+	    dangerouslySetInnerHTML: { __html: 'Drag me' }
 	};
 
-	ReactDOM.render(React.createElement("div", props), document.getElementById("component-container"));
+	var props4 = {
+	    'data-draggable': dd.generateId(),
+	    'data-draggable-constrain': 'window',
+	    'data-draggable-droptarget': 'dropzone',
+	    dangerouslySetInnerHTML: { __html: 'Drag me' }
+	};
 
-	ReactDOM.render(React.createElement("div", props2), document.getElementById("component2-container"));
+	ReactDOM.render(React.createElement("div", props1), document.getElementById("component-container1"));
 
-	ReactDOM.render(React.createElement("div", props3), document.getElementById("component3-container"));
+	ReactDOM.render(React.createElement("div", props2), document.getElementById("component-container2"));
 
-	Event.after("*:dd", function (e) {
-	    console.warn("Dragging is started");
-	    e.returnValue.then(function () {
-	        console.warn("Ready dragging");
-	    });
-	});
+	ReactDOM.render(React.createElement("div", props3), document.getElementById("component-container3"));
 
-	// Event.after("*:drop", function(e) {
-	//     console.warn(e.target, "got dropped inside", e.dropTarget);
-	// });
-
-	// Event.before("*:drop", function(e) {
-	//     e.preventDefault();
-	// });
+	ReactDOM.render(React.createElement("div", props4), document.getElementById("component-container4"));
 
 /***/ }),
 /* 1 */
@@ -29099,7 +29066,7 @@
 	        BODY.appendChild(node);
 	        supportsHTML5 = !!node.itsa_left;
 	        BODY.removeChild(node);
-	        return supportsHTML5 && false;
+	        return supportsHTML5;
 	    };
 
 	    BROWSER_SUPPORTS_HTML5 = checkHTML5Support();
