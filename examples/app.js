@@ -25876,18 +25876,24 @@
 	        _revertProxyNode: function _revertProxyNode(node, originalDragNode) {
 	            // set the position of the proxy back
 	            // transition the proxy back to its original position:
+	            var instance = this;
+	            instance._isReverting = true;
 	            return transitionTo(node, originalDragNode.itsa_left, originalDragNode.itsa_top).itsa_finally(function () {
 	                // remove the opacity of the original node:
 	                node._isReverseCloned && setXY(node, node.itsa_left, node.itsa_top, true);
 	                node.parentNode.removeChild(node);
+	                instance._isReverting = false;
 	            });
 	        },
 
 	        _revertNode: function _revertNode(node, x, y) {
 	            // transition the proxy back to its original position:
+	            var instance = this;
+	            instance._isReverting = true;
 	            return transitionTo(node, x, y).itsa_finally(function () {
 	                // remove the opacity of the original node:
 	                setXY(node, x, y, true);
+	                instance._isReverting = false;
 	            });
 	        },
 
@@ -25923,7 +25929,7 @@
 	                    firstTouch;
 
 	                parentDragNode = !isDraggable && node.itsa_inside(ITSA_DRAGGABLE);
-	                if (isDraggable || parentDragNode) {
+	                if (!instance._isReverting && (isDraggable || parentDragNode)) {
 	                    e.dragNode = parentDragNode || node;
 	                    if (e.touches && (firstTouch = e.touches[0])) {
 	                        e.clientX = firstTouch.clientX;

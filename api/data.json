@@ -382,7 +382,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 672,
+            "line": 677,
             "description": "Engine behind the drag-drop-cycle.\nSets up a `mousedown` listener to initiate a drag-drop eventcycle. The eventcycle start whenever\none of these events happens on a HtmlElement with the attribute data-draggable=\"true\"`.\nThe drag-drop eventcycle consists of the events: `start`, `emitterName:drag` and `emitterName:drop`",
             "itemtype": "method",
             "name": "init",
@@ -394,7 +394,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 745,
+            "line": 750,
             "description": "Emitted when a draggable Element's drag-cycle starts. You can use a `before`-subscriber to specify\ne.relatives, which should be a nodelist with HtmlElements, that should be dragged togehter with the master\ndraggable Element.",
             "itemtype": "event",
             "name": "*:dd",
