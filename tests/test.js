@@ -16,11 +16,11 @@ describe('Drag and Drop', function() {
         this.node1 = this.document.createElement('div');
         this.node1.setAttribute('data-draggable', dd.generateId());
         this.node1.setAttribute('style', 'width:100px;height: 100px;left:5px;top:15px;position:absolute;');
-        this.document.body.appendChild(this.node1);
+        document.body.appendChild(this.node1);
     });
 
     after(function() {
-        this.document.body.removeChild(this.node1);
+        document.body.removeChild(this.node1);
     });
 
     it('will move', function() {

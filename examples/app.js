@@ -25174,11 +25174,12 @@
 /* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	var isNode = __webpack_require__(190).isNode;
 
-	module.exports = isNode ? __webpack_require__(197) : __webpack_require__(198)(window);
+	module.exports = isNode && process.env.NODE_ENV !== 'test' ? __webpack_require__(197) : __webpack_require__(198)(window);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 197 */
