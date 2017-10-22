@@ -81,8 +81,6 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-&#x27;use strict&#x27;;
-
 /**
  * Provides &#x60;drag and drop&#x60; functionality, without dropzones.
  * For &#x60;dropzone&#x60;-support, you should use the module: &#x60;drag-drop&#x60;.
@@ -401,10 +399,10 @@ module.exports = function(WIN) {
                 customEventDrop = e.emitter + &#x27;:&#x27;+DD_DROP;
 
             Event.defineEvent(customEventDrag)
-                 .defaultFn(instance._defFnDrag.bind(instance));
+                .defaultFn(instance._defFnDrag.bind(instance));
             Event.defineEvent(customEventDrop)
-                 .defaultFn(instance._defFnDrop.bind(instance))
-                 .preventedFn(instance._prevFnDrop.bind(instance));
+                .defaultFn(instance._defFnDrop.bind(instance))
+                .preventedFn(instance._prevFnDrop.bind(instance));
             // DOCUMENT.getAll(&#x27;.&#x27;+DD_MASTER_CLASS).removeClass(DD_MASTER_CLASS);
             instance._initializeDrag(e);
             return e.draggable;

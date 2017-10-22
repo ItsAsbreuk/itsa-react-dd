@@ -29160,9 +29160,9 @@
 	            tagName = node.tagName.toLowerCase();
 	            // note that with proxy node, we will have to use dragging without transition
 	            if (BROWSER_SUPPORTS_HTML5 && !node._isCloned) {
-	                setXY_HTML5(node, tagName, dragId, x, y, dragEnd);
+	                setXyHtml5(node, tagName, dragId, x, y, dragEnd);
 	            } else {
-	                setXY_NO_HTML5(node, tagName, dragId, x, y, xtrans, ytrans, dragEnd, transitioned);
+	                setXyNoHtml5(node, tagName, dragId, x, y, xtrans, ytrans, dragEnd, transitioned);
 	            }
 	        }
 	    };
@@ -29185,7 +29185,7 @@
 	     * @param y {Number} y-value for new position (coordinates are page-based)
 	     * @since 0.0.1
 	     */
-	    var setXY_NO_HTML5 = function setXY_NO_HTML5(node, tagName, dragId, x, y, xtrans, ytrans, dragEnd, transitioned) {
+	    var setXyNoHtml5 = function setXyNoHtml5(node, tagName, dragId, x, y, xtrans, ytrans, dragEnd, transitioned) {
 	        var css, difx, dify, position, prevCSs, cssId;
 
 	        if (transitioned) {
@@ -29250,7 +29250,7 @@
 	     * @param y {Number} y-value for new position (coordinates are page-based)
 	     * @since 0.0.1
 	     */
-	    var setXY_HTML5 = function setXY_HTML5(node, tagName, dragId, x, y, dragEnd) {
+	    var setXyHtml5 = function setXyHtml5(node, tagName, dragId, x, y, dragEnd) {
 	        var prevCoordinates = HTML5_NODES_VALUES[dragId],
 	            css,
 	            prevX,
@@ -29327,7 +29327,7 @@
 	            y = Math.min(Math.max(constrain.y1, y), constrain.y2);
 	        }
 	        if (!node._isCloned && BROWSER_SUPPORTS_HTML5) {
-	            // will use setXY_HTML5: we can set the transition class:
+	            // will use setXyHtml5: we can set the transition class:
 	            addClass(node, 'itsacss-drag-revert-trans');
 	        }
 	        setXY(node, x, y, false, true);

@@ -1,8 +1,8 @@
 module.exports = {
-    entry: "./build.js",
+    entry: "./app-example.js",
     output: {
-        path: "./build",
-        filename: "dd.js"
+        path: "./examples",
+        filename: "app.js" // Template based on keys in entry above
     },
 
     module: {

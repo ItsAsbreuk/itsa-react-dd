@@ -44,7 +44,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "lib/drag-drop.js",
-            "line": 3,
+            "line": 1,
             "description": "Provides `drag and drop` functionality, without dropzones.\nFor `dropzone`-support, you should use the module: `drag-drop`.\n\n\n<i>Copyright (c) 2014 ITSA - https://github.com/itsa</i>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/",
             "example": [
                 "\nDD = require('drag')(WIN);\nDD.init();"
@@ -64,7 +64,7 @@
             "module": "drag",
             "namespace": "",
             "file": "lib/drag-drop.js",
-            "line": 3,
+            "line": 1,
             "description": "Provides `drag and drop` functionality, without dropzones.\nFor `dropzone`-support, you should use the module: `drag-drop`.\n\n\n<i>Copyright (c) 2014 ITSA - https://github.com/itsa</i>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/",
             "example": [
                 "\nDD = require('drag')(WIN);\nDD.init();"
@@ -75,7 +75,7 @@
     "classitems": [
         {
             "file": "lib/drag-drop.js",
-            "line": 123,
+            "line": 121,
             "description": "Objecthash containing all specific information about the particular drag-cycle.\nIt has a structure like this:\n\nddProps = {\n    dragNode {HtmlElement} Element that is dragged\n    x {Number} absolute x-position of the draggable inside `document` when the drag starts\n    y {Number} absolute y-position of the draggable inside `document` when the drag starts\n    inlineLeft {String} inline css of the property `left` when drag starts\n    inlineTop {String} inline css of the property `top` when drag starts\n    winConstrained {Boolean} whether the draggable should be constrained to `WIN`\n    xMouseLast {Number} absolute x-position of the mouse inside `document` when the drag starts\n    yMouseLast {Number} absolute y-position of the draggable inside `document` when the drag starts\n    winScrollLeft {Number} the left-scroll of WIN when drag starts\n    winScrollTop {Number} the top-scroll of WIN when drag starts\n    constrain = { // constrain-properties when constrained to a HtmlElement\n        xOrig {Number} x-position in the document, included with left-border-width\n        yOrig {Number} y-position in the document, included with top-border-width\n        x {Number} xOrig corrected with scroll-left of the constrained node\n        y {Number} yOrig corrected with scroll-top of the constrained node\n        w {Number} scrollWidth\n        h {Number} scrollHeight\n    };\n    relatives[{ // Array with objects that represent all draggables that come along with the master-draggable (in case of multiple items), excluded the master draggable itself\n        sourceNode {HtmlElement} original node (defined by drag-drop)\n        dragNode {HtmlElement} draggable node\n        shiftX {Number} the amount of left-pixels that this HtmlElement differs from the dragged element\n        shiftY {Number} the amount of top-pixels that this HtmlElement differs from the dragged element\n        inlineLeft {String} inline css of the property `left` when drag starts\n        inlineTop {String} inline css of the property `top` when drag starts\n    }]\n}",
             "itemtype": "property",
             "name": "ddProps",
@@ -87,7 +87,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 163,
+            "line": 161,
             "description": "Default function for the `*:drag`-event",
             "itemtype": "method",
             "name": "_defFnDrag",
@@ -106,7 +106,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 189,
+            "line": 187,
             "description": "Fired when the mouse comes back into the browser-WIN while drag was busy yet no buttons are pressed.\nThis is a correction to the fact that the mouseup-event wasn't noticed because the mouse was outside the browser.",
             "itemtype": "event",
             "name": "fake-mouseup",
@@ -118,7 +118,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 262,
+            "line": 260,
             "description": "Default function for the `*:drop`-event",
             "itemtype": "method",
             "name": "_defFnDrop",
@@ -137,7 +137,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 307,
+            "line": 305,
             "description": "Default function for the `*:dd`-event",
             "itemtype": "method",
             "name": "_defFnStart",
@@ -156,7 +156,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 330,
+            "line": 328,
             "description": "Defines the definition of the `dd` event: the first phase of the drag-eventcycle (dd, *:drag, *:drop)",
             "itemtype": "method",
             "name": "_defineDDStart",
@@ -175,7 +175,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 348,
+            "line": 346,
             "description": "Default function for the `*:drag`-event",
             "itemtype": "method",
             "name": "_initializeDrag",
@@ -194,7 +194,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 381,
+            "line": 379,
             "description": "Emitted during the drag-cycle of a draggable Element (while it is dragged).",
             "itemtype": "event",
             "name": "*:drag",
@@ -269,7 +269,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 433,
+            "line": 431,
             "description": "Emitted when drag-cycle of a draggable Element is ended.",
             "itemtype": "event",
             "name": "*:drop",
@@ -344,7 +344,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 601,
+            "line": 599,
             "description": "Prevented function for the `*:drop`-event",
             "itemtype": "method",
             "name": "_prevFnDrop",
@@ -363,7 +363,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 634,
+            "line": 632,
             "description": "Prevented function for the `*:start`-event",
             "itemtype": "method",
             "name": "_prevFnStart",
@@ -382,7 +382,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 677,
+            "line": 675,
             "description": "Engine behind the drag-drop-cycle.\nSets up a `mousedown` listener to initiate a drag-drop eventcycle. The eventcycle start whenever\none of these events happens on a HtmlElement with the attribute data-draggable=\"true\"`.\nThe drag-drop eventcycle consists of the events: `start`, `emitterName:drag` and `emitterName:drop`",
             "itemtype": "method",
             "name": "init",
@@ -394,7 +394,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 750,
+            "line": 748,
             "description": "Emitted when a draggable Element's drag-cycle starts. You can use a `before`-subscriber to specify\ne.relatives, which should be a nodelist with HtmlElements, that should be dragged togehter with the master\ndraggable Element.",
             "itemtype": "event",
             "name": "*:dd",

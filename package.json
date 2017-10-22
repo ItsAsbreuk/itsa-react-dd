@@ -29,11 +29,8 @@
     },
     "directories": {
         "css": "./css",
+        "build": "./build",
         "lib": "./lib"
-    },
-    "peerDependencies": {
-        "react": ">=15",
-        "react-dom": ">=15"
     },
     "devDependencies": {
         "babel-core": "^6.7.6",
@@ -44,6 +41,7 @@
         "chai": "^3.5.0",
         "eslint": "^4.0.0",
         "eslint-plugin-react": "^7.1.0",
+        "eslint-plugin-security": "^1.4.0",
         "istanbul": "^0.3.0",
         "jsdom": "^7.2.2",
         "jsdom-global": "^1.6.1",
@@ -59,9 +57,10 @@
         "yuidocjs": "^0.9.0"
     },
     "scripts": {
-        "test": "mocha-phantomjs ./tests/index.html",
-         "lint": "eslint ./**/*.jsx?",
-        "build": "webpack && yuidoc ./lib -q -c ./yuidoc.json"
+        "test": "NODE_ENV=test && npm run lint && mocha-phantomjs ./tests/index.html",
+        "lint": "eslint ./lib/**/*.js",
+        "build": "npm run lint && webpack && uglifyjs --compress --mangle --output ./build/dd.min.js -- ./build/dd.js && yuidoc ./lib -q -c ./yuidoc.json",
+        "build-examples": "npm run lint && webpack --config ./webpack-example.config.js && yuidoc ./lib -q -c ./yuidoc.json"
     },
     "maintainers": [
         {
