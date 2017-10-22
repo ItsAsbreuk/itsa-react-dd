@@ -59,9 +59,8 @@
         "yuidocjs": "^0.9.0"
     },
     "scripts": {
-        "pretest": "eslint  ./**/*.jsx?",
-        "test": "mocha 'tests/*.js' --compilers js:babel-core/register",
-        "lint": "eslint ./**/*.jsx?",
+        "test": "mocha-phantomjs ./tests/index.html",
+         "lint": "eslint ./**/*.jsx?",
         "build": "webpack && yuidoc ./lib -q -c ./yuidoc.json"
     },
     "maintainers": [
