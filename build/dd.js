@@ -1059,7 +1059,6 @@
 	                node,
 	                relatives;
 
-	            console.warn('_defFnDrop', e);
 	            // unset a data-attribute to `htmlNode`
 	            htmlNode.removeAttribute(DATA_DRAGGABLE_DROPTARGET);
 	            if (isCloned) {
@@ -1175,7 +1174,6 @@
 	                // move the object
 	                e.xMouse = e2.clientX;
 	                e.yMouse = e2.clientY;
-	                console.warn('move fn', e.xMouse, e.yMouse);
 	                /**
 	                * Emitted during the drag-cycle of a draggable Element (while it is dragged).
 	                *
@@ -1499,10 +1497,9 @@
 	                    handleMatch,
 	                    parentHandleNode,
 	                    firstTouch;
-	                console.warn('MOUSEDOWN');
+
 	                parentDragNode = !isDraggable && node.itsa_inside(ITSA_DRAGGABLE);
-	                if (!instance._isReverting && (isDraggable || parentDragNode)) {
-	                    console.warn('MOUSEDOWN on node');
+	                if (e.which < 2 && !instance._isReverting && (isDraggable || parentDragNode)) {
 	                    e.dragNode = parentDragNode || node;
 	                    if (e.touches && (firstTouch = e.touches[0])) {
 	                        e.clientX = firstTouch.clientX;

@@ -137,7 +137,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 306,
+            "line": 305,
             "description": "Default function for the `*:dd`-event",
             "itemtype": "method",
             "name": "_defFnStart",
@@ -156,7 +156,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 329,
+            "line": 328,
             "description": "Defines the definition of the `dd` event: the first phase of the drag-eventcycle (dd, *:drag, *:drop)",
             "itemtype": "method",
             "name": "_defineDDStart",
@@ -175,7 +175,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 347,
+            "line": 346,
             "description": "Default function for the `*:drag`-event",
             "itemtype": "method",
             "name": "_initializeDrag",
@@ -194,7 +194,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 381,
+            "line": 379,
             "description": "Emitted during the drag-cycle of a draggable Element (while it is dragged).",
             "itemtype": "event",
             "name": "*:drag",
@@ -269,7 +269,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 433,
+            "line": 431,
             "description": "Emitted when drag-cycle of a draggable Element is ended.",
             "itemtype": "event",
             "name": "*:drop",
@@ -344,7 +344,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 601,
+            "line": 599,
             "description": "Prevented function for the `*:drop`-event",
             "itemtype": "method",
             "name": "_prevFnDrop",
@@ -363,7 +363,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 634,
+            "line": 632,
             "description": "Prevented function for the `*:start`-event",
             "itemtype": "method",
             "name": "_prevFnStart",
@@ -382,7 +382,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 677,
+            "line": 675,
             "description": "Engine behind the drag-drop-cycle.\nSets up a `mousedown` listener to initiate a drag-drop eventcycle. The eventcycle start whenever\none of these events happens on a HtmlElement with the attribute data-draggable=\"true\"`.\nThe drag-drop eventcycle consists of the events: `start`, `emitterName:drag` and `emitterName:drop`",
             "itemtype": "method",
             "name": "init",
@@ -394,7 +394,7 @@
         },
         {
             "file": "lib/drag-drop.js",
-            "line": 751,
+            "line": 748,
             "description": "Emitted when a draggable Element's drag-cycle starts. You can use a `before`-subscriber to specify\ne.relatives, which should be a nodelist with HtmlElements, that should be dragged togehter with the master\ndraggable Element.",
             "itemtype": "event",
             "name": "*:dd",
