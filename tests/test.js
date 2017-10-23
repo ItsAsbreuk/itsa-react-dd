@@ -12,25 +12,34 @@ var getTop = function(node) {
 
 var mouseDownEvent, mouseUpEvent, mouseMoveEvent, evtFn;
 
-evtFn = (typeof window.MouseEvent==='function') ? 'MouseEvent' : 'Event';
+var defineMouseEvent = function(evt) {
+    var event;
+    try {
+        event = new window.MouseEvent(evt, {
+            bubbles: true,
+            view: window,
+            cancelable: true
+        });
+    }
+    catch (err) {
+        try {
+            event = new window.MouseEvent(evt, {
+                bubbles: true,
+                view: window,
+                cancelable: true
+            });
+        }
+        catch (err) {
+            event = document.createEvent('MouseEvent');
+            event.initMouseEvent(evt, true, true, window);
+        }
+    }
+    return event;
+};
 
-mouseDownEvent = new window[evtFn]('mousedown', {
-    bubbles: true,
-    view: window,
-    cancelable: true
-});
-
-mouseUpEvent = new window[evtFn]('mouseup', {
-    bubbles: true,
-    view: window,
-    cancelable: true
-});
-
-mouseMoveEvent = new window[evtFn]('mousemove', {
-    bubbles: true,
-    view: window,
-    cancelable: true
-});
+mouseDownEvent = defineMouseEvent('mousedown');
+mouseUpEvent = defineMouseEvent('mouseup');
+mouseMoveEvent = defineMouseEvent('mousemove');
 
 describe('Drag and Drop without dropzone', function() {
 
