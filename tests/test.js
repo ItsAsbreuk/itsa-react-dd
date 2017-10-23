@@ -1,4 +1,4 @@
-/* global describe, it, beforeEach, afterEach, expect, before */
+/* global describe, it, beforeEach, afterEach, expect */
 
 var dd = window.itsa_dd; // will also work on nodejs test environment
 
@@ -10,29 +10,29 @@ var getTop = function(node) {
     return node.getBoundingClientRect().top;
 };
 
-var mouseDownEvent, mouseUpEvent, mouseMoveEvent;
+var mouseDownEvent, mouseUpEvent, mouseMoveEvent, evtFn;
+
+evtFn = (typeof window.MouseEvent==='function') ? 'MouseEvent' : 'Event';
+
+mouseDownEvent = new window[evtFn]('mousedown', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
+
+mouseUpEvent = new window[evtFn]('mouseup', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
+
+mouseMoveEvent = new window[evtFn]('mousemove', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
 
 describe('Drag and Drop without dropzone', function() {
-
-    before(function() {
-        mouseDownEvent = new window.Event('mousedown', {
-            bubbles: true,
-            view: window,
-            cancelable: true
-        });
-
-        mouseUpEvent = new window.Event('mouseup', {
-            bubbles: true,
-            view: window,
-            cancelable: true
-        });
-
-        mouseMoveEvent = new window.Event('mousemove', {
-            bubbles: true,
-            view: window,
-            cancelable: true
-        });
-    });
 
     beforeEach(function() {
         this.node = document.createElement('div');
