@@ -744,12 +744,11 @@
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	'use strict';
 
 	var isNode = __webpack_require__(1).isNode;
 
-	module.exports = isNode && process.env.NODE_ENV !== 'test' ? __webpack_require__(9) : __webpack_require__(10)(window);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+	module.exports = isNode ? __webpack_require__(9) : __webpack_require__(10)(window);
 
 /***/ }),
 /* 9 */

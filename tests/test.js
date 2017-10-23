@@ -1,4 +1,4 @@
-/* global describe, it, before, after, expect, callPhantom */
+/* global describe, it, beforeEach, afterEach, expect */
 
 var dd = window.itsa_dd; // will also work on nodejs test environment
 
@@ -10,31 +10,141 @@ var getTop = function(node) {
     return node.getBoundingClientRect().top;
 };
 
-describe('Drag and Drop', function() {
+var mouseDownEvent = new window.Event('mousedown', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
 
-    before(function() {
+var mouseUpEvent = new window.Event('mouseup', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
+
+var mouseMoveEvent = new window.Event('mousemove', {
+    bubbles: true,
+    view: window,
+    cancelable: true
+});
+
+describe('Drag and Drop without dropzone', function() {
+
+    beforeEach(function() {
         this.node = document.createElement('div');
         this.node.setAttribute('data-draggable', dd.generateId());
         this.node.setAttribute('style', 'width:100px;height: 100px;left:5px;top:15px;position:absolute;');
         document.body.appendChild(this.node);
     });
 
-    after(function() {
+    afterEach(function() {
         document.body.removeChild(this.node);
     });
 
     it('will move', function() {
-        // console.warn(getLeft(this.node));
-        // console.warn(document.head.outerHTML);
-        // callPhantom({'sendEvent': ['mousedown', 50, 60]});
-        // callPhantom({'sendEvent': ['mousemove', 260, 370]});
-        // callPhantom({'sendEvent': ['mouseup']});
-        // document.sendEvent('mousedown', 10, 10);
-        // document.sendEvent('mousemove', 210, 310);
-        // console.warn(getLeft(this.node));
-        // console.warn(document.head.outerHTML);
-        // expect(getLeft(this.node)).to.be.eql(205);
-        // expect(getTop(this.node)).to.be.equal(315);
+        mouseDownEvent.clientX = 30;
+        mouseDownEvent.clientY = 40;
+        this.node.dispatchEvent(mouseDownEvent);
+        mouseMoveEvent.clientX = 130;
+        mouseMoveEvent.clientY = 240;
+        this.node.dispatchEvent(mouseMoveEvent);
+        this.node.dispatchEvent(mouseUpEvent);
+        expect(getLeft(this.node)).to.be.eql(105);
+        expect(getTop(this.node)).to.be.equal(215);
+    });
+
+});
+
+describe('Drag and Drop with dropzone', function() {
+
+    beforeEach(function() {
+        this.node = document.createElement('div');
+        this.node.setAttribute('data-draggable', dd.generateId());
+        this.node.setAttribute('data-draggable-droptarget', 'dropzone');
+        this.node.setAttribute('style', 'width:100px;height: 100px;left:5px;top:15px;position:absolute;');
+        document.body.appendChild(this.node);
+
+        this.dropzoneNode = document.createElement('div');
+        this.dropzoneNode.setAttribute('data-dropzone', 'dropzone');
+        this.dropzoneNode.setAttribute('style', 'width:500px;height: 500px;left:500px;top:500px;position:absolute;');
+        document.body.appendChild(this.dropzoneNode);
+    });
+
+    afterEach(function() {
+        document.body.removeChild(this.node);
+        document.body.removeChild(this.dropzoneNode);
+    });
+
+    it('will move into dropzone', function(done) {
+        var node = this.node;
+        mouseDownEvent.clientX = 30;
+        mouseDownEvent.clientY = 40;
+        node.dispatchEvent(mouseDownEvent);
+        mouseMoveEvent.clientX = 530;
+        mouseMoveEvent.clientY = 540;
+        node.dispatchEvent(mouseMoveEvent);
+        mouseUpEvent.clientX = 530;
+        mouseUpEvent.clientY = 540;
+        node.dispatchEvent(mouseUpEvent);
+        setTimeout(function() {
+            expect(getLeft(node)).to.be.eql(505);
+            expect(getTop(node)).to.be.equal(515);
+            done();
+        }, 500);
+    });
+
+    it('will revert when dropped outside dropzone', function(done) {
+        var node = this.node;
+        mouseDownEvent.clientX = 30;
+        mouseDownEvent.clientY = 40;
+        node.dispatchEvent(mouseDownEvent);
+        mouseMoveEvent.clientX = 130;
+        mouseMoveEvent.clientY = 240;
+        node.dispatchEvent(mouseMoveEvent);
+        mouseUpEvent.clientX = 130;
+        mouseUpEvent.clientY = 240;
+        node.dispatchEvent(mouseUpEvent);
+        setTimeout(function() {
+            expect(getLeft(node)).to.be.eql(5);
+            expect(getTop(node)).to.be.equal(15);
+            done();
+        }, 500);
+    });
+
+    it('will move into dropzone and reposition up', function(done) {
+        var node = this.node;
+        mouseDownEvent.clientX = 30;
+        mouseDownEvent.clientY = 40;
+        node.dispatchEvent(mouseDownEvent);
+        mouseMoveEvent.clientX = 500;
+        mouseMoveEvent.clientY = 500;
+        node.dispatchEvent(mouseMoveEvent);
+        mouseUpEvent.clientX = 500;
+        mouseUpEvent.clientY = 500;
+        node.dispatchEvent(mouseUpEvent);
+        setTimeout(function() {
+            expect(getLeft(node)).to.be.eql(500);
+            expect(getTop(node)).to.be.equal(500);
+            done();
+        }, 500);
+    });
+
+    it('will move into dropzone and reposition down', function(done) {
+        var node = this.node;
+        mouseDownEvent.clientX = 30;
+        mouseDownEvent.clientY = 40;
+        node.dispatchEvent(mouseDownEvent);
+        mouseMoveEvent.clientX = 1000;
+        mouseMoveEvent.clientY = 1000;
+        node.dispatchEvent(mouseMoveEvent);
+        mouseUpEvent.clientX = 1000;
+        mouseUpEvent.clientY = 1000;
+        node.dispatchEvent(mouseUpEvent);
+        setTimeout(function() {
+            expect(getLeft(node)).to.be.eql(900);
+            expect(getTop(node)).to.be.equal(900);
+            done();
+        }, 500);
     });
 
 });

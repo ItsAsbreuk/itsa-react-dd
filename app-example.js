@@ -1,9 +1,7 @@
-"use strict";
+'use strict';
 
-const React = require("react"),
-    Event = require('itsa-event'),
-    ReactDOM = require("react-dom"),
-    later = require('itsa-utils').later,
+const React = require('react'),
+    ReactDOM = require('react-dom'),
     dd = require('./index');
 
 const props1 = {
@@ -39,20 +37,20 @@ const props4 = {
 
 ReactDOM.render(
     <div {...props1} />,
-    document.getElementById("component-container1")
+    document.getElementById('component-container1')
 );
 
 ReactDOM.render(
     <div {...props2} />,
-    document.getElementById("component-container2")
+    document.getElementById('component-container2')
 );
 
 ReactDOM.render(
     <div {...props3} />,
-    document.getElementById("component-container3")
+    document.getElementById('component-container3')
 );
 
 ReactDOM.render(
     <div {...props4} />,
-    document.getElementById("component-container4")
+    document.getElementById('component-container4')
 );
