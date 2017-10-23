@@ -59,7 +59,7 @@
         "yuidocjs": "^0.9.0"
     },
     "scripts": {
-        "test": "NODE_ENV=test && npm run lint && node_modules/.bin/mocha-phantomjs -p /usr/local/bin/phantomjs ./tests/index.html",
+        "test": "NODE_ENV=test && node_modules/.bin/mocha-phantomjs -p /usr/local/bin/phantomjs ./tests/index.html",
         "test-x": "NODE_ENV=test && node_modules/.bin/mocha-phantomjs ./tests/index.html",
         "lint": "node_modules/.bin/eslint ./lib/**/*.js",
         "build": "npm run lint && webpack && uglifyjs --compress --mangle --output ./build/dd.min.js -- ./build/dd.js && yuidoc ./lib -q -c ./yuidoc.json",
