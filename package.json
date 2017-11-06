@@ -1,6 +1,6 @@
 {
     "name": "itsa-react-dd",
-    "version": "16.0.6",
+    "version": "16.0.7",
     "description": "Drag and Drop for React without a wrapper",
     "author": [
         {
